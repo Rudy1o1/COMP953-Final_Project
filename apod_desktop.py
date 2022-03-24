@@ -20,6 +20,7 @@ from sys import argv, exit
 from datetime import datetime, date
 from hashlib import sha256
 from os import path
+import sqlite3
 
 def main():
 
@@ -157,7 +158,25 @@ def create_image_db(db_path):
     :param db_path: Path of .db file
     :returns: None
     """
-    return #TODO
+
+    #connect to the databse for retreving the connection object
+    myConnection = sqlite3.connect('apod_images.db')
+
+    myCursor = myConnection.cursor()
+
+    #sql query to create our database table
+
+    createImageTable = """ CREATE TABLE IF NOT EXISTS images(
+                            location_path text NOT NULL,
+                            file_size int NOT NULL,
+                            hash_value text NOT NULL,
+                            date_time datetime NOT NULL
+                        );"""
+    
+    myCursor.execute(createImageTable)
+    myConnection.commit()
+    myConnection.close()
+    return None 
 
 def add_image_to_db(db_path, image_path, image_size, image_sha256):
     """
