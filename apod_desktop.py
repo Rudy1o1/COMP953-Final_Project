@@ -21,6 +21,7 @@ from datetime import datetime, date
 from hashlib import sha256
 from os import path
 import sqlite3
+import requests
 
 def main():
 
@@ -117,7 +118,22 @@ def get_apod_info(date):
     :param date: APOD date formatted as YYYY-MM-DD
     :returns: Dictionary of APOD info
     """    
-    return {"todo" : "TODO"}
+
+    apod_date= argv[2]
+
+    URL = 'https://api.nasa.gov/planetary/apod'
+
+    API_KEY = '4JxrLgSaoFPKS9Xd8lXugyeMjYAN7aOOyfH0EQ5I'
+    
+    params={
+        'api_key':API_KEY,
+        'date':apod_date
+    }
+
+    response = requests.get(URL,params=params)
+    
+    return response.json()
+
 
 def print_apod_info(image_url, image_path, image_size, image_sha256):
     """
