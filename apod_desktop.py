@@ -110,7 +110,7 @@ def get_image_path(image_url, dir_path):
     """
     return "TODO"
 
-def get_apod_info(date):
+def get_apod_info(date):    
     """
     Gets information from the NASA API for the Astronomy 
     Picture of the Day (APOD) from a specified date.
