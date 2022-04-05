@@ -20,6 +20,7 @@ from sys import argv, exit
 from datetime import datetime, date
 from hashlib import sha256
 from os import path
+import os
 import sqlite3
 import requests
 
@@ -39,11 +40,25 @@ def main():
     apod_info_dict = get_apod_info(apod_date)
     
     # Download today's APOD
-    image_url = apod_info_dict['url']
-    image_msg = download_apod_image(image_url)
-    image_sha256 = "TODO"
-    image_size = -1 # TODO
+      #image_url from apod_dict
+    image_url = apod_info_dict['url']         
+
+     #image_msg which get from the downloading the image
+    image_msg = download_apod_image(image_url) 
+
+     #image size
+    image_size = os.stat(image_path).st_size   
+
+     #image path
     image_path = get_image_path(image_url, image_dir_path)
+
+    #Counting The hash of the image
+    sha256_hash = sha256()
+    with open(image_path,"rb") as f:
+        # Read and update hash string value in blocks of 4K
+        for byte_block in iter(lambda: f.read(4096),b""):
+            sha256_hash.update(byte_block)
+        image_sha256= sha256_hash.hexdigest()
 
     # Print APOD image information
     print_apod_info(image_url, image_path, image_size, image_sha256)

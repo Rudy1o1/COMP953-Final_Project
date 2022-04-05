@@ -38,6 +38,19 @@ worked on the saving the image file on the disk.
 Same code with the as the last edition but with the bit correction and repleacements.
 time:5 mins
 
+worked on the image hash
+first couter some problem when I was doing with the fucntion, which was couting the hash of the image
+problem:function somehow fist gave me error and then I edited it little bit but still it wasn't giving me error but giving me garbage value for hash
+
+Then instead of using the function I just implement the code into the main() function
+reference:https://www.quickprogrammingtips.com/python/how-to-calculate-sha256-hash-of-a-file-in-python.html
+time: approxe 45 mins
+
+worked on the getting image size
+reference:https://stackoverflow.com/questions/2104080/how-can-i-check-file-size-in-python
+time:20 mins
+
+
 
 
 
