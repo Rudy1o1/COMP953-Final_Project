@@ -2,16 +2,25 @@ import requests
 from sys import argv
 import json
 
-apod_date= '2020-07-18'
-URL = 'https://api.nasa.gov/planetary/apod'
+def main():
+     
+    apod_info_dict = get_apod_info()
 
-API_KEY = '4JxrLgSaoFPKS9Xd8lXugyeMjYAN7aOOyfH0EQ5I'
-params={
-        'api_key':API_KEY,
-        'date':apod_date
-    }
-response = requests.get(URL,params=params)
+   # print(apod_info_dict)
+
+    print(apod_info_dict['url'])
+
+def get_apod_info():
     
-a = response.json()
+    URL = 'https://api.nasa.gov/planetary/apod'
 
-print(a)
+    API_KEY = '4JxrLgSaoFPKS9Xd8lXugyeMjYAN7aOOyfH0EQ5I'
+    params={
+             'api_key':API_KEY,
+                'date':'2020-07-18'
+            }
+    response = requests.get(URL,params=params)
+    
+    return response.json()
+
+main()

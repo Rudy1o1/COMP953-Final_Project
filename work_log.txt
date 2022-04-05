@@ -25,6 +25,12 @@ Worked on creating the create_image_db function
 worked pefectly and I am able to see the database file
 time:35 mins
 
+worked on image url, which I get through the apod_info dictionary
+reference: lab 7
+time:5 mins
+
+
+
 
 
 
