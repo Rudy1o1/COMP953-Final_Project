@@ -29,6 +29,11 @@ worked on image url, which I get through the apod_info dictionary
 reference: lab 7
 time:5 mins
 
+worked on the downloading the image from the URL,which I get from the apod_info dictionary
+facing the problem to differentiate between the downloadingand the saving fucntion of the APOD script.
+reference:https://stackoverflow.com/questions/13137817/how-to-download-image-using-requests
+time: approxe 47 mins
+
 
 
 

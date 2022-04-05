@@ -154,9 +154,11 @@ def download_apod_image(image_url):
     :param image_url: URL of image
     :returns: Response message that contains image data
     """
-    return "TODO"
 
-def save_image_file(image_msg, image_path):
+    image_data = requests.get(image_url).content
+    return image_data
+
+def save_image_file(image_msg, image_path):     
     """
     Extracts an image file from an HTTP response message
     and saves the image file to disk.
@@ -165,7 +167,7 @@ def save_image_file(image_msg, image_path):
     :param image_path: Path to save image file
     :returns: None
     """
-    return #TODO
+    return None
 
 def create_image_db(db_path):
     """
