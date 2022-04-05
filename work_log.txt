@@ -1,0 +1,30 @@
+#working 
+7th MAr
+uplodaing desktop_apod.py to the GitHub
+working with vs_code_ignore file
+
+time:30 mins
+
+24th march
+
+uplodaing uplodaing desktop_apod.py in python file format to the GitHub
+working with vs_code_ignore file to remove the workspace files
+working with database
+time:1 hr 30 mins
+reference : lab 3
+
+30th march
+
+worked on the getting apod_info using the NASA APOD API
+time:around half an hour
+reference:lab 6
+https://www.youtube.com/watch?v=cZovlpGVVdA
+
+5th April
+Worked on creating the create_image_db function
+worked pefectly and I am able to see the database file
+time:35 mins
+
+
+
+
