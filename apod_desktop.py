@@ -155,7 +155,9 @@ def download_apod_image(image_url):
     :returns: Response message that contains image data
     """
 
+    print("Downloading the APOD Image...")
     image_data = requests.get(image_url).content
+    
     return image_data
 
 def save_image_file(image_msg, image_path):     
@@ -167,6 +169,10 @@ def save_image_file(image_msg, image_path):
     :param image_path: Path to save image file
     :returns: None
     """
+
+    with open(image_path, 'wb') as handler:
+        handler.write(image_msg)
+
     return None
 
 def create_image_db(db_path):

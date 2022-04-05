@@ -34,6 +34,9 @@ facing the problem to differentiate between the downloadingand the saving fucnti
 reference:https://stackoverflow.com/questions/13137817/how-to-download-image-using-requests
 time: approxe 47 mins
 
+worked on the saving the image file on the disk.
+Same code with the as the last edition but with the bit correction and repleacements.
+time:5 mins
 
 
 
