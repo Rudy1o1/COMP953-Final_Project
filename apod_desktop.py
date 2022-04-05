@@ -159,8 +159,14 @@ def print_apod_info(image_url, image_path, image_size, image_sha256):
     :param image_size: Size of image in bytes
     :param image_sha256: SHA-256 of image
     :returns: None
-    """    
-    return #TODO
+    """
+    print("APOD Information:")
+    
+    print("\tURL:",image_url)
+    print("\tFile Path:",image_path)
+    print("\tFile Size:",image_size)
+    print("\tSHA-256:",image_sha256)
+    return None
 
 def download_apod_image(image_url):
     """

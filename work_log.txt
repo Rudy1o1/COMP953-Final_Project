@@ -50,6 +50,9 @@ worked on the getting image size
 reference:https://stackoverflow.com/questions/2104080/how-can-i-check-file-size-in-python
 time:20 mins
 
+worked on the printing the APOD information
+time:5 mins
+
 
 
 
