@@ -57,7 +57,9 @@ worked on the get_image_path()function:
 reference:https://www.geeksforgeeks.org/python-string-rsplit-method/
 time:approxe half hour
 
-
+Try to work on the script execution without saving images into databse and without even putting on desktop background
+Error: File path for image_saving is not exsisted
+time:approxe 40 mins
 
 
 
