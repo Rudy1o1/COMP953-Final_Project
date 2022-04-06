@@ -17,7 +17,7 @@ History:
   2022-03-11  J.Dalby   Initial creation
 """
 from sys import argv, exit
-from datetime import datetime, date
+from datetime import datetime, date,time
 from hashlib import sha256
 from os import path
 import os
@@ -40,17 +40,22 @@ def main():
     apod_info_dict = get_apod_info(apod_date)
     
     # Download today's APOD
-      #image_url from apod_dict
+    #image_url from apod_dict
     image_url = apod_info_dict['url']         
 
-     #image_msg which get from the downloading the image
+    #image_msg which get from the downloading the image
     image_msg = download_apod_image(image_url) 
 
-     #image size
+    #image path
+    image_path = get_image_path(image_url, image_dir_path)
+
+    #image size
     image_size = os.stat(image_path).st_size   
 
-     #image path
-    image_path = get_image_path(image_url, image_dir_path)
+    #image Download date
+    image_download_date = os.path.getctime(image_path)
+
+   
 
     #Counting The hash of the image
     sha256_hash = sha256()
@@ -66,7 +71,7 @@ def main():
     # Add image to cache if not already present
     if not image_already_in_db(db_path, image_sha256):
         save_image_file(image_msg, image_path)
-        add_image_to_db(db_path, image_path, image_size, image_sha256)
+        add_image_to_db(db_path, image_path, image_size, image_sha256,image_download_date)
 
     # Set the desktop background image to the selected APOD
     set_desktop_background_image(image_path)
@@ -229,7 +234,7 @@ def create_image_db(db_path):
     myConnection.close()
     return None 
 
-def add_image_to_db(db_path, image_path, image_size, image_sha256):
+def add_image_to_db(db_path, image_path, image_size, image_sha256,date):
     """
     Adds a specified APOD image to the DB.
 
@@ -254,7 +259,7 @@ def add_image_to_db(db_path, image_path, image_size, image_sha256):
     addData = (image_path,
                 image_size,
                 image_sha256,
-                datetime.now()
+                time.ctime(date)
                 )
     
     myCursor.execute(addImageQuery,addData)
