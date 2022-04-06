@@ -239,7 +239,29 @@ def add_image_to_db(db_path, image_path, image_size, image_sha256):
     :param image_sha256: SHA-256 of image
     :returns: None
     """
-    return #TODO
+
+    myConnection = sqlite3.connect(db_path)
+
+    myCursor = myConnection.cursor()
+
+    addImageQuery = """INSERT INTO images(
+                        location_path,
+                        file_size,
+                        hash_value,
+                        date_time
+                        )
+                    VALUES (?,?,?,?);"""
+    addData = (image_path,
+                image_size,
+                image_sha256,
+                datetime.now()
+                )
+    
+    myCursor.execute(addImageQuery,addData)
+
+    myConnection.commit()
+    myConnection.close()
+    return None
 
 def image_already_in_db(db_path, image_sha256):
     """

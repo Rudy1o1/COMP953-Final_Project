@@ -66,5 +66,11 @@ Able to solve the File_Path problem
 solution: I was not calling the save_image_file() function in main(), that's why it wasn't downloading the image and path was showing as unreachable
 time:20 mins
 
+worked on adding images into databse
+first error in datetime.time() function for passing the date, but then I try datetime.now() which worked perfectly
+reference: Lab 3
+https://datatofish.com/create-database-python-using-sqlite3/
+https://pynative.com/python-sqlite-date-and-datetime/
+time:28 mins
 
 
