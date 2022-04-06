@@ -61,5 +61,10 @@ Try to work on the script execution without saving images into databse and witho
 Error: File path for image_saving is not exsisted
 time:approxe 40 mins
 
+6-APR-2022
+Able to solve the File_Path problem
+solution: I was not calling the save_image_file() function in main(), that's why it wasn't downloading the image and path was showing as unreachable
+time:20 mins
+
 
 
