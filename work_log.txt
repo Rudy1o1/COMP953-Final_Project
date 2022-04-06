@@ -53,6 +53,9 @@ time:20 mins
 worked on the printing the APOD information
 time:5 mins
 
+worked on the get_image_path()function:
+reference:https://www.geeksforgeeks.org/python-string-rsplit-method/
+time:approxe half hour
 
 
 

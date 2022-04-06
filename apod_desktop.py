@@ -123,7 +123,13 @@ def get_image_path(image_url, dir_path):
     :param dir_path: Path of directory in which image is saved locally
     :returns: Path at which image is saved locally
     """
-    return "TODO"
+    last_part_url = image_url.rsplit("/")[-1:]
+
+    last_part = last_part_url[0]
+    
+    final_image_path = dir_path+"\\"+last_part
+
+    return final_image_path
 
 def get_apod_info(date):    
     """
@@ -149,7 +155,6 @@ def get_apod_info(date):
     
     return response.json()
 
-
 def print_apod_info(image_url, image_path, image_size, image_sha256):
     """
     Prints information about the APOD
@@ -166,6 +171,7 @@ def print_apod_info(image_url, image_path, image_size, image_sha256):
     print("\tFile Path:",image_path)
     print("\tFile Size:",image_size)
     print("\tSHA-256:",image_sha256)
+
     return None
 
 def download_apod_image(image_url):

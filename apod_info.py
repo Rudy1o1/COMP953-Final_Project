@@ -6,9 +6,10 @@ def main():
      
     apod_info_dict = get_apod_info()
 
-   # print(apod_info_dict)
+    print(apod_info_dict)
 
     print(apod_info_dict['url'])
+
 
 def get_apod_info():
     
