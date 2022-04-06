@@ -77,4 +77,10 @@ Able to solve the download_date problem and able to insert it into databse
 reference:https://www.geeksforgeeks.org/how-to-get-file-creation-and-modification-date-or-time-in-python/
 
 
+Worked on changing the wallpaper but desktop turn on to the black.
+reference:https://www.youtube.com/watch?v=nW3_qzEWCr0
+time:15 mins
 
+Able to solve the problme of black screen.
+reference:https://www.reddit.com/r/learnpython/comments/f6uskv/trying_to_change_my_wallpaper_but_all_i_get_is_a/
+time:30 mins

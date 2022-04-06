@@ -23,6 +23,7 @@ from os import path
 import os
 import sqlite3
 import requests
+import ctypes
 
 def main():
 
@@ -286,6 +287,11 @@ def set_desktop_background_image(image_path):
     :param image_path: Path of image file
     :returns: None
     """
-    return #TODO
+
+    SPI_SETDESKWALLPAPER = 20
+    path = os.path.abspath(image_path).encode()
+    ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0,path , 0)
+    
+    return None
 
 main()
