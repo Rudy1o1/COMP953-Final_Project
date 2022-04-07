@@ -84,3 +84,8 @@ time:15 mins
 Able to solve the problme of black screen.
 reference:https://www.reddit.com/r/learnpython/comments/f6uskv/trying_to_change_my_wallpaper_but_all_i_get_is_a/
 time:30 mins
+
+
+Try to work on the image chaching
+reference lab 3
+time:approxe 1hr 20 mins

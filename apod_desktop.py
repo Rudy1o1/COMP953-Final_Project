@@ -278,7 +278,20 @@ def image_already_in_db(db_path, image_sha256):
     :param image_sha256: SHA-256 of image
     :returns: True if image is already in DB; False otherwise
     """ 
-    return True #TODO
+
+    myConnection = sqlite3.connect(db_path)
+    myCursor = myConnection.cursor()
+
+    selectStatement = """SELECT location_path FROM images
+                    WHERE file_size == (image_sha256);"""
+
+    myCursor.execute(selectStatement)
+    results = myCursor.fetchall()
+    print(len(results))
+
+    myConnection.close
+
+    return results
 
 def set_desktop_background_image(image_path):
     """
