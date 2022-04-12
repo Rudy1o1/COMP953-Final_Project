@@ -19,6 +19,7 @@ History:
 from sys import argv, exit
 from datetime import datetime, date,time
 from hashlib import sha256
+import hashlib
 from os import path
 import os
 import sqlite3
@@ -51,29 +52,23 @@ def main():
     image_path = get_image_path(image_url, image_dir_path)
 
     #image size
-    image_size = os.stat(image_path).st_size   
+    image_size = len(image_msg)
 
     #image Download date
-    image_download_date = os.path.getctime(image_path)
-
-   
+    image_download_date = datetime.now()
 
     #Counting The hash of the image
-    sha256_hash = sha256()
-    with open(image_path,"rb") as f:
-        # Read and update hash string value in blocks of 4K
-        for byte_block in iter(lambda: f.read(4096),b""):
-            sha256_hash.update(byte_block)
-        image_sha256= sha256_hash.hexdigest()
+    image_sha256 = hashlib.sha256(image_msg).hexdigest()
 
     # Print APOD image information
     print_apod_info(image_url, image_path, image_size, image_sha256)
 
     # Add image to cache if not already present
     if not image_already_in_db(db_path, image_sha256):
+        
         save_image_file(image_msg, image_path)
         add_image_to_db(db_path, image_path, image_size, image_sha256,image_download_date)
-
+        
     # Set the desktop background image to the selected APOD
     set_desktop_background_image(image_path)
 
@@ -146,7 +141,8 @@ def get_apod_info(date):
     :returns: Dictionary of APOD info
     """    
 
-    apod_date= argv[2]
+    print("Getting APOD information from NASA...sucess")
+    apod_date= date
 
     URL = 'https://api.nasa.gov/planetary/apod'
 
@@ -175,7 +171,7 @@ def print_apod_info(image_url, image_path, image_size, image_sha256):
     
     print("\tURL:",image_url)
     print("\tFile Path:",image_path)
-    print("\tFile Size:",image_size)
+    print("\tFile Size:",image_size,"bytes")
     print("\tSHA-256:",image_sha256)
 
     return None
@@ -188,7 +184,7 @@ def download_apod_image(image_url):
     :returns: Response message that contains image data
     """
 
-    print("Downloading the APOD Image...")
+    print("Downloading the APOD...sucess")
     image_data = requests.get(image_url).content
     
     return image_data
@@ -260,7 +256,7 @@ def add_image_to_db(db_path, image_path, image_size, image_sha256,date):
     addData = (image_path,
                 image_size,
                 image_sha256,
-                time.ctime(date)
+                datetime.date(date)
                 )
     
     myCursor.execute(addImageQuery,addData)
@@ -282,16 +278,30 @@ def image_already_in_db(db_path, image_sha256):
     myConnection = sqlite3.connect(db_path)
     myCursor = myConnection.cursor()
 
-    selectStatement = """SELECT location_path FROM images
-                    WHERE file_size == (image_sha256);"""
+    hash = image_sha256
+
+    selectStatement = ("""SELECT location_path FROM images
+                    WHERE hash_value = \'""") + hash + "\'" 
 
     myCursor.execute(selectStatement)
     results = myCursor.fetchall()
-    print(len(results))
 
     myConnection.close
 
-    return results
+    if (len(results)==0):
+        a = False
+
+        print("New Image Not in chache.")
+        print("Saving Image File...sucess")
+        print("Adding Image to DB...sucess")
+        
+
+    else:
+        a= True
+
+        print("Image is already in chache.")
+
+    return a
 
 def set_desktop_background_image(image_path):
     """
@@ -300,6 +310,8 @@ def set_desktop_background_image(image_path):
     :param image_path: Path of image file
     :returns: None
     """
+
+    print("Setting desktop wallpaper...sucess")
 
     SPI_SETDESKWALLPAPER = 20
     path = os.path.abspath(image_path).encode()
