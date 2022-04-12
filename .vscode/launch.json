@@ -8,6 +8,7 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
+            "args": ["C:\\Temp\\Final_Project","2022-01-04"],
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
