@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#Extra files from the GitHub 
+apod_dekstop.py.txt
+apod_info.py
+checking_db.py
+image_name.jpg
+
+
 # C extensions
 *.so
 
