@@ -15,6 +15,8 @@ Parameters:
 History:
   Date        Author    Description
   2022-03-11  J.Dalby   Initial creation
+  2022-03-24  Rudra Patel Script working
+  2022-04-12  Rudra Patel Script completion 
 """
 from sys import argv, exit
 from datetime import datetime, date,time

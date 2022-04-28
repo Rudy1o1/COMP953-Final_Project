@@ -1,5 +1,8 @@
-#working 
-7th MAr
+Work Log
+Name: Rudra M Patel
+Subject:COMP593_Final_Porject
+
+7th Mar
 uplodaing desktop_apod.py to the GitHub
 working with vs_code_ignore file
 
@@ -96,3 +99,6 @@ time:10 mins
 
 12-Apr-2022 (12:20 PM)
 Program totally run perfectly.
+
+28-Apr-2022
+Final edition in script and I submitted the project.
